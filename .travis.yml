@@ -1,3 +1,8 @@
 language: node_js
 node_js:
   - "node"
+before_install:
+  - npm install -g http-server
+before_script:
+  - http-server -p 3000 --cors &
+  - sleep 3
