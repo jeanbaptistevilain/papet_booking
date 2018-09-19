@@ -45,22 +45,22 @@ function ajouterNouvelleSalle( $proprioSalle, $nomSalle, $capaciteSalle, $descri
                 // Ré-écriture avec la nouvelle salle
                 if( file_put_contents( 'data/data-test.json', $data_processed ) ) {
 
-                    echo "La liste des salles a été mise à jour.";
+                    echo "AJOUT_OK";
                 }
                 else {
-                    echo "Il y a eu un problème pendant l'ouverture du fichier.";
+                    echo "OUVERTURE_FICHIER";
                 }
             }
             else {
-                echo "Une salle portant ce nom existe déjà.";
+                echo "SALLE_EXISTANTE";
             }
         }
         else {
-            echo "Le fichier json n'existe pas.";
+            echo "JSON_INEXISTANT";
         }
     }
     else {
-        echo "Les données du formulaire sont incomplètes.";
+        echo "FORM_INCOMPLET";
     }
 }
 
