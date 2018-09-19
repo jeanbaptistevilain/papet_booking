@@ -24,8 +24,8 @@
                             <div class="col">
                                 <div class="row">
                                     <div class="col">
-                                        <label for="filter-date-start">Date début</label>
-                                        <input id="filter-date-start" type="date" class="form-control">
+                                        <label for="filter-date">Date</label>
+                                        <input id="filter-date" type="date" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -44,7 +44,7 @@
                                 <input id="filter-minimum-space" type="number" class="form-control">
                             </div>
                             <div class="col col-sm-2">
-                                <input type="submit" class="btn btn-primary">
+                                <input type="submit" id="submit" class="btn btn-primary">
                             </div>
                         </div>
                     </form>
@@ -55,12 +55,13 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
                         <th scope="col">Nom</th>
                         <th scope="col">Description</th>
+                        <th scope="col">Capacité maximum</th>
+                        <th scope="col">Propriétaire</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="result-list">
                     </tbody>
                 </table>
             </div>
