@@ -1,0 +1,14 @@
+{"rooms": [
+  {
+    "nom": "Salle Nicky",
+    "description": "Une grande salle quelque part dans les papeteries",
+    "max-capacity": 200,
+    "proprio": "Olivier"
+  },
+  {
+    "nom": "Salle Oui",
+    "description": "Je sais pas trop",
+    "max-capacity": 50,
+    "proprio": "Benoit"
+  }
+], "bookings": []}
