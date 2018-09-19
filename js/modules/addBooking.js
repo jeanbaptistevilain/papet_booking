@@ -1,8 +1,3 @@
-document.getElementById("btnAddResa").addEventListener('click', function(event){
-   event.preventDefault();
-
-});
-
 function isNotConflict(date, from, to){
 
     let dateToday = Date.now();
