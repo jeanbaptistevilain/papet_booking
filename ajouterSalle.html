@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter une Salle</title>
+    <link href="css/bootstrap.css" type="text/css" rel="stylesheet">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <link href="css/style-ajouterSalle.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+
+        <form>
+
+            <div class="form-group">
+                <label for="nom_salle">Nom de la salle</label>
+                <input type="text" class="form-control" id="nom_salle" name="nom_salle" required>
+            </div>
+
+            <div class="form-group">
+                <label for="capacite_salle">Capacité</label>
+                <input type="number" class="form-control" id="capacite_salle" name="capacite_salle" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="submit_ajouter_salle">Ajouter</button>
+
+        </form>
+
+    </div>
+
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/underscore.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
