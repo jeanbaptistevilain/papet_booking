@@ -39,10 +39,10 @@ function ajouterNouvelleSalle( $proprioSalle, $nomSalle, $capaciteSalle, $descri
 
                 );
 
-                //print_r($array_data);
                 $array_data['rooms'][] = $form_data;
                 $data_processed = json_encode($array_data, JSON_PRETTY_PRINT);
 
+                // Ré-écriture avec la nouvelle salle
                 if( file_put_contents( 'data/data-test.json', $data_processed ) ) {
 
                     echo "La liste des salles a été mise à jour.";
