@@ -6,14 +6,19 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 //Traitement spécial pour avoir la liste des salles remontées dans n'importe quel champs de formulaire
 var rooms = null;
 
-function getRooms(path) {
+function getAvailables(date, hour, path) {
+    var availables = [];
     var path = path || "";
+    var timestamp = (new Date(date + " " + hour).getTime() / 1000);
     $.ajax( {
         "url":  path + "/data/data-test.json",
         "success" : function (data) {
-            rooms = data.rooms;
-            _.each(data.rooms, function (value, key) {
-                $('select[data-rooms]').append($("<option>", {value : key, text: value.nom}))
+            _.each(data.rooms, function (v, room_id) {
+                var has_booking = _.filter(data.bookings, (x) => {
+                    return x.room == room_id && timestamp < x.from && timestamp > x.to;
+                });
+                if(_.size(has_booking) == 0)
+                    availables.push(room_id);
             });
         },
         "error": function (data) {
@@ -24,12 +29,10 @@ function getRooms(path) {
         },
         "async": false
     });
-    return rooms != null;
+    return availables;
 }
 
 
 if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-    module.exports.getRooms = getRooms;
+    module.exports.getAvailables = getAvailables;
 }
-else
-    getRooms();

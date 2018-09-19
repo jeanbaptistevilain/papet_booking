@@ -6,21 +6,25 @@
     <link href="css/bootstrap.css" type="text/css" rel="stylesheet">
     <link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
-        <div class="row" id="add-resa">
-            <div class="col-9">
-                <h1>Mes réservations</h1>
-            </div>
-            <div class="col-3">
-                <a class="btn btn-primary" href="book.create.html" role="button">Ajouter Réservation</a>
-            </div>
+<body class="bg-light">
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>Mes réservations</h2>
+        <a class="btn btn-primary" href="book.create.html" role="button">Ajouter Réservation</a>
+    </div>
+    <div class="row">
+        <div id="mybooking" class="col-12">
+
         </div>
+
+    </div>
     </div>
 
     <script src="js/bootstrap.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/underscore.min.js"></script>
     <script src="index.js"></script>
+    <script src="js/modules/booking.js"></script>
+    <script src="js/modules/booking-list.js"></script>
 </body>
 </html>
