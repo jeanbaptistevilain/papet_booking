@@ -71,13 +71,15 @@ function verifierValiditeSalle( proprio, nom, capacite, description ) {
 
     if( $.type( proprio ) === "string" && $.type( nom ) === "string" && $.isNumeric(capacite) && $.type( description ) === "string" ) {
 
-        if( capacite >= 0 ) { return true; }
+        if( capacite >= 0 ) {
+            return true;
+        }
         else {
-            return "La capacité de la salle ";
+            return "La capacité de la salle doit être supérieure à 0.";
         }
     }
     else {
-        return true;
+        return "Les types des variables sont incorrects.";
     }
 }
 
