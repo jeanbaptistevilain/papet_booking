@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for papet_booking/js/modules/booking.js</title>
+    <title>Code coverage report for papet_booking/js/modules/booking.util.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -16,28 +16,28 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../../index.html">All files</a> / <a href="index.html">papet_booking/js/modules</a> booking.js
+      <a href="../../../index.html">All files</a> / <a href="index.html">papet_booking/js/modules</a> booking.util.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">80% </span>
+        <span class="strong">88.89% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>12/15</span>
+        <span class='fraction'>16/18</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">70% </span>
+        <span class="strong">73.33% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>7/10</span>
+        <span class='fraction'>11/15</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">60% </span>
+        <span class="strong">66.67% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/5</span>
+        <span class='fraction'>4/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">80% </span>
+        <span class="strong">88.89% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>12/15</span>
+        <span class='fraction'>16/18</span>
       </div>
     </div>
   </div>
@@ -78,7 +78,10 @@
 33
 34
 35
-36</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+36
+37
+38
+39</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -89,10 +92,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -111,8 +119,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="missing-if-branch" title="else path not taken" >E</span>if (typeof module !== 'undefined' &amp;&amp; typeof module.exports !== 'undefined') {
     window.$ = require('../jquery.min');
     window._ = require('../underscore.min');
@@ -121,14 +127,19 @@
 //Traitement spécial pour avoir la liste des salles remontées dans n'importe quel champs de formulaire
 var rooms = null;
 &nbsp;
-function getRooms(path) {
+function getAvailables(date, hour, path) {
+    var availables = [];
     var path = path || <span class="branch-1 cbranch-no" title="branch not covered" >"";</span>
+    var timestamp = (new Date(date + " " + hour).getTime() / 1000);
     $.ajax( {
         "url":  path + "/data/data-test.json",
         "success" : function (data) {
-            rooms = data.rooms;
-            _.each(data.rooms, function (value, key) {
-                $('select[data-rooms]').append($("&lt;option&gt;", {value : key, text: value.nom}))
+            _.each(data.rooms, function (v, room_id) {
+                var has_booking = _.filter(data.bookings, (x) =&gt; {
+                    return x.room == room_id &amp;&amp; timestamp &lt; x.from &amp;&amp; timestamp &gt; x.to;
+                });
+                <span class="missing-if-branch" title="else path not taken" >E</span>if(_.size(has_booking) == 0)
+                    availables.push(room_id);
             });
         },
         "error": <span class="fstat-no" title="function not covered" >fu</span>nction (data) {
@@ -139,15 +150,13 @@ function getRooms(path) {
         },
         "async": false
     });
-    return rooms != null;
+    return availables;
 }
 &nbsp;
 &nbsp;
 <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof module !== 'undefined' &amp;&amp; typeof module.exports !== 'undefined') {
-    module.exports.getRooms = getRooms;
+    module.exports.getAvailables = getAvailables;
 }
-else
-<span class="cstat-no" title="statement not covered" >    getRooms();</span>
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
