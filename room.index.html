@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Salles</title>
+        <link href="css/bootstrap.css" type="text/css" rel="stylesheet">
+        <link href="css/style.css" type="text/css" rel="stylesheet">
+    </head>
+    <body class="bg-light">
+        <div class="container">
+            <div class="py-5 text-center">
+                <h2>Salles</h2>
+                <p class="lead">Liste des salles</p>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <h4>Rechercher</h4>
+                    <hr>
+                    <form>
+                        <div class="row">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="filter-date-start">Date début</label>
+                                        <input id="filter-date-start" type="date" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="filter-time-start">Heure début</label>
+                                        <input id="filter-time-start" type="time" class="form-control">
+                                    </div>
+                                    <div class="col">
+                                        <label for="filter-time-end">Heure fin</label>
+                                        <input id="filter-time-end" type="time" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="filter-minimum-space">Minimum de places</label>
+                                <input id="filter-minimum-space" type="number" class="form-control">
+                            </div>
+                            <div class="col col-sm-2">
+                                <input type="submit" class="btn btn-primary">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <h4>Liste des salles</h4>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <script src="js/bootstrap.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/underscore.min.js"></script>
+        <script src="index.js"></script>
+        <script src="./js/modules/search.js"></script>
+    </body>
+</html>
