@@ -4,17 +4,15 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 }
 
 //Traitement spécial pour avoir la liste des salles remontées dans n'importe quel champs de formulaire
-var rooms = null;
+var bookings = null;
 
-function getRooms(path) {
+function getBookings(path) {
     var path = path || "";
     $.ajax( {
         "url":  path + "/data/data-test.json",
         "success" : function (data) {
-            rooms = data.rooms;
-            _.each(data.rooms, function (value, key) {
-                $('select[data-rooms]').append($("<option>", {value : key, text: value.nom}))
-            });
+            bookings = data.bookings;
+            createBookingList(bookings);
         },
         "error": function (data) {
             console.log(data);
@@ -27,9 +25,18 @@ function getRooms(path) {
     return rooms != null;
 }
 
+function createBookingList(bookings) {
+    _.each(bookings, (v, k)=> {
+        if(_.has(rooms, v.room)) {
+            var room = rooms[v.room];
+            console.log(v, room);
+        }
+    });
+}
+
 
 if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-    module.exports.getRooms = getRooms;
+    module.exports.getBookings = getBookings;
 }
 else
-    getRooms();
+    getBookings();
