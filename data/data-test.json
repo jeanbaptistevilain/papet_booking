@@ -17,12 +17,6 @@
             "description": "skdufsugdhfjk",
             "max-capacity": "4",
             "proprio": "Jacques"
-        },
-        {
-            "nom": "Salle 1",
-            "description": "Grande salle",
-            "max-capacity": "45",
-            "proprio": "Mich"
         }
     ],
     "bookings": [
