@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
 
-    alert(ajouterSalle( "Mich", "Salle 1", 45, "Grande salle" ));
+    //alert(ajouterSalle( "Mich", "Salle 1", 45, "Grande salle" ));
 });
 
 

@@ -72,7 +72,9 @@ function verifierValiditeSalle( proprio, nom, capacite, description ) {
     if( $.type( proprio ) === "string" && $.type( nom ) === "string" && $.isNumeric(capacite) && $.type( description ) === "string" ) {
 
         if( capacite >= 0 ) { return true; }
-        else { return false; }
+        else {
+            return "La capacité de la salle ";
+        }
     }
     else {
         return true;
