@@ -83,6 +83,7 @@ function verifierValiditeSalle( proprio, nom, capacite, description ) {
     }
 }
 
+// Exports pour les tests
 if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     window.$ = require('./jquery.min');
     module.exports.ajouterSalle = ajouterSalle;
