@@ -13,7 +13,6 @@ if(inputSubmit){
     })
 }
 
-
 document.addEventListener('DOMContentLoaded', function(){
     searchHandler()
 }, false);
@@ -25,7 +24,6 @@ document.addEventListener('DOMContentLoaded', function(){
  * @returns {string}
  */
 function addRow (value){
-
     let content = `<tr>
                         <td>${value.nom}</td>
                         <td>${value.description}</td>
@@ -36,32 +34,88 @@ function addRow (value){
     resultList.insertAdjacentHTML("beforeend", content);
 }
 
-
+/**
+ *
+ */
 function searchHandler(){
-    const dateValue      = date.value;
-    const timeStartValue = timeStart.value;
-    const timeEndValue   = timeEnd.value;
-    const minSpaceValue  = minSpace.value;
     resultList.innerHTML = '';
-    let rooms = null;
+    let rooms            = null;
+    let bookings         = null;
+    const dateValue      = date.value;
+    const timeStartValue = formatedDate(dateValue, timeStart.value);
+    const timeEndValue   = formatedDate(dateValue, timeEnd.value);
+    const minSpaceValue  = minSpace.value;
 
     $.get("data/data-test.json", {}, function (data) {
-        rooms = data.rooms;
-        
+        rooms    = data.rooms;
+        bookings = data.bookings;
         if (!rooms){
             return;
         }
-
         let formatedRooms = rooms;
 
-        if (minSpaceValue) {
-            formatedRooms = rooms.filter(function(room){
-                return room.maxCapacity >= minSpaceValue;
-            })
-        }
+        formatedRooms = filterSpace(minSpaceValue, rooms);
+        filterByTime(timeStartValue, timeEndValue, rooms, bookings);
 
         formatedRooms.map(function(room){
             addRow(room);
         })
+    })
+}
+
+/**
+ *
+ * @param date
+ * @param time
+ * @returns {*}
+ */
+function formatedDate(date, time){
+    if (!date || !time){
+        return;
+    }
+
+    return new Date(date + ' ' + time);
+}
+
+/**
+ *
+ * @param minSpaceValue
+ * @param rooms
+ * @returns {*}
+ */
+function filterSpace(minSpaceValue, rooms){
+    if (!minSpaceValue) {
+        return rooms;
+    }
+
+    return rooms.filter(function(room){
+        return room.maxCapacity >= minSpaceValue;
+    })
+}
+
+
+/**
+ *
+ * @param timeStart
+ * @param timeEnd
+ * @param rooms
+ * @param bookings
+ */
+function filterByTime(timeStart, timeEnd, rooms, bookings) {
+    if (!timeStart || !timeEnd || !rooms || !bookings) {
+        return;
+    }
+
+    bookings.map(function(booking) {
+        let bookingStartDate = new Date(booking.from * 1000);
+        let bookingEndDate   = new Date(booking.to * 1000);
+
+        if (
+            (timeStart.getTime() < bookingStartDate.getTime() && timeEnd.getTime() > bookingStartDate.getTime())
+            ||
+            (timeStart.getTime() < bookingEndDate.getTime() && timeEnd.getTime() > bookingEndDate.getTime())
+        ) {
+            rooms.splice(booking.room, 1);
+        }
     })
 }

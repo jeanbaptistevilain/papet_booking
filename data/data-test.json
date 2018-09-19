@@ -1,11 +1,13 @@
 {"rooms": [
   {
+    "id": 0,
     "nom": "Salle Nicky",
     "description": "Une grande salle quelque part dans les papeteries",
     "maxCapacity": 200,
     "proprio": "Olivier"
   },
   {
+    "id": 1,
     "nom": "Salle Oui",
     "description": "Je sais pas trop",
     "maxCapacity": 50,
@@ -13,14 +15,14 @@
   }
 ], "bookings": [
   {
-    "from": "1537356232",
-    "to" : "1537442632",
+    "from": 1537356232,
+    "to" : 1537442632,
     "room": 0,
     "state": 1
   },
   {
-    "from": "1534764232",
-    "to" : "1534789432",
+    "from": 1534764232,
+    "to" : 1534789432,
     "room": 1,
     "state": 2
   }
