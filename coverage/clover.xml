@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1537358298630" clover="3.2.0">
-  <project timestamp="1537358298630" name="All files">
-    <metrics statements="26" coveredstatements="16" conditionals="3770" coveredconditionals="401" methods="774" coveredmethods="127" elements="4570" coveredelements="544" complexity="0" loc="26" ncloc="26" packages="3" files="4" classes="4">
+<coverage generated="1537359412067" clover="3.2.0">
+  <project timestamp="1537359412067" name="All files">
+    <metrics statements="26" coveredstatements="18" conditionals="3770" coveredconditionals="584" methods="774" coveredmethods="152" elements="4570" coveredelements="754" complexity="0" loc="26" ncloc="26" packages="3" files="4" classes="4">
       <package name="papet_booking">
         <metrics statements="9" coveredstatements="4" conditionals="4" coveredconditionals="3" methods="3" coveredmethods="1"/>
         <file name="index.js" path="/Applications/MAMP/htdocs/gobelins/resa/papet_booking/index.js">
@@ -18,30 +18,30 @@
         </file>
       </package>
       <package name="papet_booking.js">
-        <metrics statements="2" coveredstatements="2" conditionals="3756" coveredconditionals="391" methods="766" coveredmethods="124"/>
+        <metrics statements="2" coveredstatements="2" conditionals="3756" coveredconditionals="574" methods="766" coveredmethods="148"/>
         <file name="jquery.min.js" path="/Applications/MAMP/htdocs/gobelins/resa/papet_booking/js/jquery.min.js">
-          <metrics statements="1" coveredstatements="1" conditionals="3215" coveredconditionals="353" methods="592" coveredmethods="98"/>
-          <line num="2" count="200" type="cond" truecount="353" falsecount="2862"/>
+          <metrics statements="1" coveredstatements="1" conditionals="3215" coveredconditionals="536" methods="592" coveredmethods="122"/>
+          <line num="2" count="200" type="cond" truecount="536" falsecount="2679"/>
         </file>
         <file name="underscore.min.js" path="/Applications/MAMP/htdocs/gobelins/resa/papet_booking/js/underscore.min.js">
           <metrics statements="1" coveredstatements="1" conditionals="541" coveredconditionals="38" methods="174" coveredmethods="26"/>
-          <line num="5" count="161" type="cond" truecount="38" falsecount="503"/>
+          <line num="5" count="164" type="cond" truecount="38" falsecount="503"/>
         </file>
       </package>
       <package name="papet_booking.js.modules">
-        <metrics statements="15" coveredstatements="10" conditionals="10" coveredconditionals="7" methods="5" coveredmethods="2"/>
+        <metrics statements="15" coveredstatements="12" conditionals="10" coveredconditionals="7" methods="5" coveredmethods="3"/>
         <file name="booking.js" path="/Applications/MAMP/htdocs/gobelins/resa/papet_booking/js/modules/booking.js">
-          <metrics statements="15" coveredstatements="10" conditionals="10" coveredconditionals="7" methods="5" coveredmethods="2"/>
+          <metrics statements="15" coveredstatements="12" conditionals="10" coveredconditionals="7" methods="5" coveredmethods="3"/>
           <line num="1" count="1" type="cond" truecount="3" falsecount="1"/>
           <line num="2" count="1" type="stmt"/>
           <line num="3" count="1" type="stmt"/>
           <line num="7" count="1" type="stmt"/>
           <line num="10" count="1" type="cond" truecount="1" falsecount="1"/>
           <line num="11" count="1" type="stmt"/>
-          <line num="14" count="0" type="stmt"/>
-          <line num="15" count="0" type="stmt"/>
-          <line num="16" count="0" type="stmt"/>
-          <line num="20" count="1" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="16" count="3" type="stmt"/>
+          <line num="20" count="0" type="stmt"/>
           <line num="23" count="0" type="stmt"/>
           <line num="27" count="1" type="stmt"/>
           <line num="31" count="1" type="cond" truecount="3" falsecount="1"/>
