@@ -1,0 +1,14 @@
+{
+  "name": "papet_booking",
+  "version": "1.0.0",
+  "description": "A sample app to book meeting rooms at the Papeteries",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}
