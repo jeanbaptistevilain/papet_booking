@@ -11,4 +11,17 @@
     "maxCapacity": 50,
     "proprio": "Benoit"
   }
-], "bookings": []}
+], "bookings": [
+  {
+    "from": "1537356232",
+    "to" : "1537442632",
+    "room": 0,
+    "state": 1
+  },
+  {
+    "from": "1534764232",
+    "to" : "1534789432",
+    "room": 1,
+    "state": 2
+  }
+]}
